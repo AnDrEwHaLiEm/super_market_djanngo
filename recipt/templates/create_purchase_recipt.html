@@ -1,0 +1,83 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Recipt</title>
+    <style>
+        a {
+            text-decoration: none;
+            color: black;
+        }
+
+        table, th, td {
+            border: 1px solid black;
+        }
+    </style>
+</head>
+
+
+<body>
+ {%include "header.html" %}
+     <form class='form' action="main_purchase_recipt_page" method="POST">
+        {% csrf_token %}
+        supplier ID : <input type="text" value="{{supplier_id}}" placeholder="supplier_id" name="supplier_id">
+        <input type="submit" value="go" name="submit">
+        <br>
+        <br>
+        product Name :
+        <select name="product_id">
+            {% for  key,value in supplier_products.items%}
+                <option value="{{key}}">{{value.p_name}}</option>
+            {%endfor%}
+        </select>
+        <br>
+        <br>
+        Product quantity : <input type="number" step=0.01 min=".01" placeholder="product quantity" name="product_quantity">
+        <input type="submit" value="add_item" name="submit">
+        <br>
+        <br>
+        <table>
+            <thead>
+                <tr>
+                    <th>supplier_id</th>
+                    <th>product id</th>
+                    <th>name</th>
+                    <th>unity</th>
+                    <th>import price</th>
+                    <th>quantity</th>
+                    <th>total price</th>
+                    <th>remove</th>
+                </tr>
+            </thead>
+            <tbody>
+                {%for key,value in table_items.items %}
+                    <tr>
+                        <td>{{value.supplier_id}}</td>
+                        <td>{{value.id}}</td>
+                        <td>{{value.p_name}}</td>
+                        <td>{{value.unity}}</td>
+                        <td>{{value.import_price}}</td>
+                        <td>{{value.quantity}}</td>
+                        <td>{{value.total_price}}</td>
+                        <td>
+                            <a href="http://127.0.0.1:8000/recipt/main_purchase_recipt_page?remove={{key}}">Delete</a>
+                        </td>
+                    </tr>
+                {%endfor%}
+                <tr>
+                    <td>Total_pricr</td>
+                     <td colspan="7" align = "center">{{total_price}}</td>
+                </tr>
+            </tbody>
+        </table>
+        <input type="submit" value="add_recipt" name="submit">
+    </form>
+     {%if Error %}
+        <div>{{Error}}</div>
+    {%endif%}
+</body>
+
+</html>

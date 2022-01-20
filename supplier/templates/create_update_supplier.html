@@ -1,0 +1,28 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>supplier</title>
+</head>
+<body>
+    {% load static %}
+    {% include 'header.html'%}
+    <form class='form' action = "insert_update_supplier" method="POST">
+        {% csrf_token %}
+        <input type={{status}} placeholder="supplier id" value="{{supplier_id}}" name="supllier_id">
+        <input type=" text" placeholder="supplier name" value="{{supplier_name}}" name="supplier_name">
+        <input type="email" placeholder="supplier email" value="{{supplier_email}}" name="supplier_email">
+        {% for value in supplier_phones%}
+            <input type="text" placeholder="supplier phone" value="{{value.1}}" name="supplier_phone">
+        {%endfor%}
+        {%for i in range %}
+            <input type="text" placeholder="supplier phone" value="{{value.1}}" name="supplier_phone">
+        {% endfor %}
+        <input type="submit" value="{{Query}}" name="submit">
+    </form>
+</body>
+
+</html>

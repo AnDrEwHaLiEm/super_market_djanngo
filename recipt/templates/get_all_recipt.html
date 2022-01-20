@@ -1,0 +1,67 @@
+
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>recipt</title>
+    <style>
+        body {
+            font-family: Arial, Helvetica, sans-serif;
+        }
+        a {
+            text-decoration: none;
+        }
+        .column {
+          float: left;
+          width: 25%;
+          padding: 0 10px;
+          margin-bottom: 20px;
+        }
+        @media screen and (max-width: 600px) {
+          .column {
+            width: 80%;
+            display: block;
+            margin-left:10%
+            margin-bottom: 20px;
+          }
+        }
+        .card {
+          box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2);
+          padding: 16px;
+          text-align: center;
+          background-color: #f1f1f1;
+        }
+        h1 {
+          color: #c00;
+          font-family: sans-serif;
+          font-size: 2em;
+          margin-bottom: 0;
+        }
+        h2 {
+            color:black;
+            text-align: center;
+        }
+    </style>
+</head>
+
+<body>
+    {% include "header.html" %}
+    <h2>All sales recipt</h2>
+       {%for value in recipt%}
+            <div class='column'>
+                <div class='card'>
+                    <a style="color: black; text-decoration: none;" href="get_one_recipt?id={{value.0.0}}">
+                    <h3> recipt ID : {{value.0.0}}</h3>
+                    <h4> toal price : {{value.0.2}}</h4>
+                    <h4> toal profit : {{value.0.1}}</h4>
+                    <h3> date : {{value.1.1}}</h3>
+                    </a>
+                </div>
+            </div>
+        {%endfor%}
+</body>
+
+</html>

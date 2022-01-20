@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>product</title>
+</head>
+<body>
+    {% load static %}
+    {% include 'header.html'%}
+    <form class='form' action = "insert_update_product" method="POST">
+        {% csrf_token %}
+        <br>
+        {% if Query == "insert"%}
+        product id : <input type={{status_id}} placeholder="product id" value="{{product_id}}" name="product_id">
+        <br><br>
+        {%endif%}
+        product name : <input type=" text" placeholder="product name" value="{{product_name}}" name="product_name">
+        <br><br>
+        product price : <input type="number" step=0.01 placeholder="product price" value="{{product_price}}" name="product_price">
+        <br><br>
+        product type : <input type="text" placeholder="product type" value="{{product_type}}" name="product_type">
+       {% if Query == "update"%}
+        <br><br>
+        product quantityInMarket : <input type="{{status_quantity}}" placeholder="product quantityInMarket" value="{{product_quantityInMarket}}" name="product_quantityInMarket">
+        <br><br>
+        product quantityInStore<input type="{{status_quantity}}" placeholder="product quantityInStore" value="{{product_quantityInStore}}" name="product_quantityInStore">
+        {%endif%}
+        <br><br>
+        product importPrice : <input type="number" step=0.01 placeholder="product importPrice" value="{{product_importPrice}}" name="product_importPrice">
+        <br><br>
+        product unity : <input type="text" placeholder="product unity" value="{{product_unity}}" name="product_unity">
+        <br><br>
+        product PackagePecies : <input type="number" step=0.01 placeholder="product PackagePecies" value="{{product_PackagePecies}}" name="product_PackagePecies">
+        <br><br>
+        product supplier : <input type="text" placeholder="product supplier" value="{{product_supplier}}" name="product_supplier">        
+        <br><br>
+        {% if Query == 'update'%}
+            <input type={{status_id}} placeholder="product id" value="{{product_id}}" name="product_id">
+        {%endif%}
+        <input type="submit" value="{{Query}}" name="submit">
+    </form>
+</body>
+
+</html>

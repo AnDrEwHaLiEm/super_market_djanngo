@@ -1,0 +1,95 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>recipt</title>
+    <style>
+        body {
+            font-family: Arial, Helvetica, sans-serif;
+        }
+        a {
+            text-decoration: none;
+        }
+        .column {
+          float: left;
+          width: 25%;
+          padding: 0 10px;
+          margin-left:40%;
+          margin-top:10%;
+          margin-bottom: 20px;
+        }
+        @media screen and (max-width: 600px) {
+          .column {
+            width: 80%;
+            display: block;
+            margin-left:5%;
+            margin-bottom: 20px;
+          }
+        }
+        .card {
+          box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2);
+          padding: 16px;
+          text-align: center;
+          background-color: #f1f1f1;
+        }
+        h1 {
+          color: #c00;
+          font-family: sans-serif;
+          font-size: 2em;
+          margin-bottom: 0;
+        }
+        h2 {
+            color:black;
+            text-align: center;
+        }
+        table, th, td {
+            border: 1px solid black;
+        }
+    </style>
+</head>
+
+<body>
+ {% include "header.html" %}
+        <div class='column'>
+            <div class='card' style="width:fit-content; height: fit-content;">
+                <h3>  recipt id : {{recipt_id}}</h3>
+                <h3> Date : {{recipt_date}}</h3>
+                <table>
+                    <thead>
+                        <tr>
+                        {%if status == "purchase"%}
+                            <th>supplier_id</th>
+                        {%endif%}
+                            <th>Name</th>
+                            <th>Quantity</th>
+                            <th>Price</th>
+                            <th>Unity</th>
+                            <th>Total_pricr</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                       {% for value in product%}
+                            <tr>
+                                {%if status == "purchase"%}
+                                    <th>{{value.2}}</th>
+                                {%endif%}
+                                <td>{{value.0}}</td>
+                                <td>{{value.3}}</td>
+                                <td>{{value.4}}</td>
+                                <td>{{value.1}}</td>
+                                <td>{{value.5}}</td>
+                            </tr>
+                       {%endfor%}
+                    </tbody>
+                </table>
+                <h3>Total price : {{total_price}}</h3>
+                <h3>Total profit : {{total_profit}}</h3>
+            </div>
+        </div>
+    </div>
+</body>
+
+</html>

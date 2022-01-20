@@ -1,0 +1,59 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>supplier</title>
+    <style>
+        * {
+            box-sizing: border-box;
+        }
+        .alert {
+            padding: 20px;
+            background-color: orangered;
+            color: white;
+            opacity: 1;
+            margin-bottom: 15px;
+        }
+        .alert.success {
+          background-color: #04aa6d;
+        }
+    </style>
+</head>
+
+<body>
+    {%  include 'header.html' %}
+    {%if error%}
+     <div class="alert">
+            <strong>Warning!</strong> {{error}}
+            <strong><a href="http://127.0.0.1:8000" ?>Back to Home</a></strong>
+        </div>
+    {%elif required_statues %}
+        <div class="alert">
+            <strong>Warning!</strong>
+            {%for value in required%}
+                <strong>{{value}} is Requair</strong>
+            {%endfor%}
+        </div>
+    {%elif not supplier_exist%}
+        <div class="alert">
+            <strong>Warning!</strong> supplier Not Exist
+        </div>
+    {%elif product_exist %}
+        <div class="alert">
+            <strong>Warning!</strong> product is Exist
+        </div>
+    {% else  %}
+            <div class="alert success">
+                <strong>Success!</strong>
+            </div>
+            {% if process_type == "insert"%}
+                <button><a href="create_product?new=true" ?>create new product</a></button>
+            {%endif%}
+            <button><a href="get_One_product?id={{product_id}}">show product</a></button>
+    {%endif%}
+</body>
+
+</html>
