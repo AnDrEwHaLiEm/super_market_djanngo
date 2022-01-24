@@ -6,25 +6,43 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>supplier</title>
-        {% load static%}
+    {% load static%}
     <link rel="stylesheet" href="{% static 'main_header.css'%}">
 </head>
 <body>
-    {% load static %}
     {% include 'header.html'%}
-    <form class='form' action = "insert_update_supplier" method="POST">
-        {% csrf_token %}
-        <input type={{status}} placeholder="supplier id" value="{{supplier_id}}" name="supllier_id">
-        <input type=" text" placeholder="supplier name" value="{{supplier_name}}" name="supplier_name">
-        <input type="email" placeholder="supplier email" value="{{supplier_email}}" name="supplier_email">
-        {% for value in supplier_phones%}
-            <input type="text" placeholder="supplier phone" value="{{value.1}}" name="supplier_phone">
-        {%endfor%}
-        {%for i in range %}
-            <input type="text" placeholder="supplier phone" value="{{value.1}}" name="supplier_phone">
-        {% endfor %}
-        <input type="submit" value="{{Query}}" name="submit">
-    </form>
+    <div class="login-box">
+        <form class='form' action = "insert_update_supplier" method="POST">
+        <h2>{{Query}} supplier</h2>
+            {% csrf_token %}
+            <div class="user-box">
+                <input type={{status}} value="{{supplier_id}}" name="supllier_id" required>
+                {% if Query == "insert"%}
+                    <label>supplier id</label>
+                {%endif%}
+            </div>
+            <div class="user-box">
+                <input type=" text" value="{{supplier_name}}" name="supplier_name" required>
+                <label> supplier name</label>
+            <div class="user-box">
+                <input type="email" value="{{supplier_email}}" name="supplier_email" required>
+                <label>supplier email</label>
+            </div>
+            {% for value in supplier_phones%}
+                <div class="user-box">
+                    <input type="text" value="{{value.1}}" name="supplier_phone">
+                    <label> supplier phone</label>
+                </div>
+            {%endfor%}
+            {%for i in range %}
+                <div class="user-box">
+                    <input type="text" value="{{value.1}}" name="supplier_phone">
+                    <label> supplier phone</label>
+                </div>
+            {% endfor %}
+            <input type="submit" value="{{Query}}" name="submit">
+        </form>
+    </div>
 </body>
 
 </html>

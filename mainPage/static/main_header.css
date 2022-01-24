@@ -5,7 +5,9 @@
     padding: 27%;
 
 }
-
+body{
+    background: linear-gradient(#141e30, #243b55);
+}
 .navbar {
     overflow: hidden;
     background-color: #333;
@@ -72,4 +74,140 @@
     display: block;
     background-color: #ddd;
     border-radius: 10px;
+}
+
+.form {
+    font-family: sans-serif;
+  
+}
+
+
+.get-box{
+    margin-top: 5%;
+    position: absolute;
+    width: 90%;
+    margin-left: 5%;
+    padding-left: 10%;
+    padding-top: 2%;
+    background: rgba(0,0,0,.5);
+    box-sizing: border-box;
+    box-shadow: 0 15px 25px rgba(0,0,0,.6);
+    border-radius: 10px;
+}
+
+.get-box h2 {
+    margin: 0 0 30px;
+    padding: 0;
+    color: #fff;
+    text-align: center;
+  }
+  
+  .column {
+    float: left;
+    width: 25%;
+    padding: 0 10px;
+    margin-bottom: 20px;
+  }
+  .column-One{
+    float: left;
+    width: 80%;
+    padding: 0 10px;
+    margin-left: 10%;
+    margin-bottom: 20px;
+  }
+  .card {
+    box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2);
+    padding: 16px;
+    text-align: center;
+    background-color: #ffffff85;
+  }
+
+
+.login-box {
+    margin-top: 5%;
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    width: 800px;
+    padding: 40px;
+    transform: translate(-50%, -50%);
+    background: rgba(0,0,0,.5);
+    box-sizing: border-box;
+    box-shadow: 0 15px 25px rgba(0,0,0,.6);
+    border-radius: 10px;
+  }
+  
+  .login-box h2 {
+    margin: 0 0 30px;
+    padding: 0;
+    color: #fff;
+    text-align: center;
+  }
+  
+  .login-box .user-box {
+    position: relative;
+  }
+  
+  .login-box .user-box input {
+    width: 100%;
+    padding: 10px 0;
+    font-size: 16px;
+    color: #fff;
+    margin-bottom: 30px;
+    border: none;
+    border-bottom: 1px solid #fff;
+    outline: none;
+    background: transparent;
+  }
+  .login-box .user-box label {
+    position: absolute;
+    top:0;
+    left: 0;
+    padding: 10px 0;
+    font-size: 16px;
+    color: #fff;
+    pointer-events: none;
+    transition: .5s;
+  }
+  
+  .login-box .user-box input:focus ~ label {
+    top: -20px;
+    left: 0;
+    color: #03e9f4;
+    font-size: 12px;
+  }
+.login-box .user-box input:valid ~ label {
+    top: -20px;
+    left: 0;
+    color: #03e9f4;
+    font-size: 12px;  top: -20px;
+    left: 0;
+    color: #03e9f4;
+    font-size: 12px;
+}
+  
+input[type="submit"] {
+    padding: 8px 20px;
+    border-radius: 0;
+    overflow: hidden;
+}
+input[type="submit"]::before{
+    position: absolute;
+    content: "";
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: linear-gradient(
+      120deg,
+      transparent,
+      var(--primary-color),
+      transparent
+    );
+    transform: translateX(-100%);
+    transition: 0.6s;
+}
+input[type="submit"]:hover {
+          background: transparent;
+          box-shadow: 0 0 20px 10px hsla(103, 96%, 27%, 0.5);
 }

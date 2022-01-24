@@ -15,14 +15,6 @@
         a {
             text-decoration: none;
         }
-        .column {
-          float: left;
-          width: 25%;
-          padding: 0 10px;
-          margin-left:40%;
-          margin-top:10%;
-          margin-bottom: 20px;
-        }
         @media screen and (max-width: 600px) {
           .column {
             width: 80%;
@@ -30,22 +22,6 @@
             margin-left:5%;
             margin-bottom: 20px;
           }
-        }
-        .card {
-          box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2);
-          padding: 16px;
-          text-align: center;
-          background-color: #f1f1f1;
-        }
-        h1 {
-          color: #c00;
-          font-family: sans-serif;
-          font-size: 2em;
-          margin-bottom: 0;
-        }
-        h2 {
-            color:black;
-            text-align: center;
         }
         table, th, td {
             border: 1px solid black;
@@ -55,7 +31,8 @@
 
 <body>
  {% include "header.html" %}
-        <div class='column'>
+ <div class="login-box">
+        <div class='column-One'>
             <div class='card' style="width:fit-content; height: fit-content;">
                 <h3>  recipt id : {{recipt_id}}</h3>
                 <h3> Date : {{recipt_date}}</h3>
@@ -91,6 +68,7 @@
                 <h3>Total profit : {{total_profit}}</h3>
             </div>
         </div>
+    </div>
     </div>
 </body>
 

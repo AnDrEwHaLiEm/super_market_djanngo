@@ -7,22 +7,14 @@
     <title>supplier</title>
         {% load static%}
     <link rel="stylesheet" href="{% static 'main_header.css'%}">
-    <style>
+     <style>
         body {
             font-family: Arial, Helvetica, sans-serif;
         }
         a {
             text-decoration: none;
         }
-        .column {
-          float: left;
-          width: 25%;
-          padding: 0 10px;
-          margin-bottom: 20px;
-        }
-
-
-        @media screen and (max-width: 600px) {
+        @media screen and (max-width: 1000px) {
           .column {
             width: 80%;
             margin-left:10%
@@ -30,28 +22,12 @@
             margin-bottom: 20px;
           }
         }
-
-        .card {
-          box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2);
-          padding: 16px;
-          text-align: center;
-          background-color: #f1f1f1;
-        }
-        h1 {
-          color: #c00;
-          font-family: sans-serif;
-          font-size: 2em;
-          margin-bottom: 0;
-        }
-        h2 {
-            color:black;
-            text-align: center;
-        }
     </style>
 </head>
 
 <body>
     {% include 'header.html'%}
+     <div class = "get-box ">
     <h2>  All suppliers</h2>
         {% for value in suppliers_information%}
             <div class='column'>
@@ -64,6 +40,7 @@
                 </div>
             </div>
        {% endfor %}
+    </div>
 </body>
 
 </html>

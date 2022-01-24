@@ -8,15 +8,6 @@
         a {
             text-decoration: none;
         }
-        .column {
-          float: left;
-          width: 25%;
-          padding: 0 10px;   
-          margin-left:40%;
-          margin-top:8%;     
-        }
-
-
         @media screen and (max-width: 600px) {
           .column {
             width: 80%;
@@ -24,31 +15,19 @@
             display: block;
           }
         }
-
-        .card {
-          box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2);
-          padding: 16px;
-          text-align: center;
-          background-color: #f1f1f1;
-        }
-        h1 {
-          color: #c00;
-          font-family: sans-serif;
-          font-size: 2em;
-          margin-bottom: 0;
-        }
     </style>
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <title>supplier</title>
-        {% load static%}
+    {% load static%}
     <link rel="stylesheet" href="{% static 'main_header.css'%}">
 </head>
 
 <body>
     {%  include 'header.html' %}
-        <div class='column'>
+    <div class="login-box"> 
+        <div class='column-One'>
             <div class='card'>
                 <h3>Name : {{value.1}}</h3>
                 <p>Email : {{value.2}} </p>
@@ -59,11 +38,14 @@
                 <form action="operation_supplier" method="POST">
                  {% csrf_token %}
                     <input type="hidden" name="id" value="{{value.0}}">
-                    <input type="submit" name="submit" value="delete">
-                    <input type="submit" name="submit" value="update">
+                    <div class="user-box">
+                        <input type="submit" name="submit" value="update">
+                        <input type="submit" name="submit" value="delete">
+                    </div>
                 </form>
             </div>
         </div>
+      </div>
 </body>
 
 </html>
